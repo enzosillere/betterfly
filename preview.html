@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bettefly Festival</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0a0a0a;
+    color: white;
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    background: linear-gradient(135deg, #6a00ff, #ff00cc);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;    
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin: 0;
+}
+
+.hero p {
+    font-size: 1.5rem;
+}
+
+.btn {
+    background: #ff00cc;
+    padding: 15px 30px;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 30px;
+}
+
+.btn:hover {
+    background: #ff4ddb;
+}
+
+/* SECTION */
+.section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.lineup {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.artist {
+    background: #111;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* COUNTDOWN */
+#countdown {
+    font-size: 2rem;
+    margin-top: 20px;
+}
+
+/* FOOTER */
+footer {
+    background: #000;
+    padding: 20px;
+    text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>Bettefly</h1>
+    <p>Le festival qui fait vibrer ton été</p>
+    <p>13 Juin 2026 — Rueil-Malmaison</p>
+    <div id="countdown"></div>
+    <button class="btn">Acheter un billet</button>
+</section>
+
+<!-- LINEUP -->
+<section class="section">
+    <h2>Line-up</h2>
+    <div class="lineup">
+        <div class="artist">DJ Nova</div>
+        <div class="artist">Luna Wave</div>
+        <div class="artist">Electra Vibe</div>
+        <div class="artist">Sky Beats</div>
+    </div>
+</section>
+
+<!-- BILLETTERIE -->
+<section class="section">
+    <h2>Billetterie</h2>
+    <p>Early Bird : 20€</p>
+    <p>Standard : 35€</p>
+    <p>VIP : 60€</p>
+    <button class="btn">Réserver maintenant</button>
+</section>
+
+<!-- INFOS -->
+<section class="section">
+    <h2>Infos pratiques</h2>
+    <p>📍 Parc des Bords de Seine, Rueil-Malmaison</p>
+    <p>🕒 16h - 02h</p>
+    <p>🚆 Accès RER A</p>
+</section>
+
+<!-- ABOUT -->
+<section class="section">
+    <h2>À propos</h2>
+    <p>Organisé par le Rotaract Club de Rueil-Malmaison, Bettefly est un festival engagé, festif et solidaire.</p>
+</section>
+
+<!-- CONTACT -->
+<section class="section">
+    <h2>Contact</h2>
+    <p>Email : contact@betteflyfestival.com</p>
+</section>
+
+<footer>
+    <p>© 2026 Bettefly Festival</p>
+</footer>
+
+<script>
+// COUNTDOWN
+const countDate = new Date("June 13, 2026 16:00:00").getTime();
+
+const x = setInterval(function() {
+    const now = new Date().getTime();
+    const distance = countDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+    const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
+
+    document.getElementById("countdown").innerHTML =
+    days + "j " + hours + "h " + minutes + "m ";
+
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("countdown").innerHTML = "C'est parti !";
+    }
+}, 1000);
+</script>
+
+</body>
+</html>
